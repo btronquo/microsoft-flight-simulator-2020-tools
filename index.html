@@ -11,9 +11,11 @@
     <div id="app">
       <div class="container">
 
+        <p>MFS2020 Object XLM Generator</p>
+
         <div class="formInput">
-          <input type="text" v-model="inputGuid"  name="guid" placeholder="GUID">
-          <button @click.stop.prevent="copyCode">copy code to clipboard</button>
+          <input type="text" class="guid" v-model="inputGuid"  name="guid" placeholder="GUID">
+          <button @click.stop.prevent="copyCode" class="btn btn-copy">Copy</button>
         </div>
 
           <textarea id="result" rows="5" cols="50">
@@ -21,6 +23,7 @@
 &lt;ModelInfo version=&quot;1.1&quot; guid=&quot;{{this.editForm}}&quot;&gt;
 &lt;/ModelInfo&gt;
           </textarea>
+          <button @click="downloadFile()" class="btn btn-save">Save File (XML)</button>
 
       </div>
 
@@ -43,9 +46,17 @@
             copyCode.select()
             document.execCommand("copy")
             alert('Code was copied to your clipboard')
-          }
+          },
+          downloadFile: function() {
+            const a = document.createElement('a');
+            let content = document.querySelector("#result").value;
+            const file = new Blob([content], {type: 'text/xml', endings: 'native'});
+            a.href= URL.createObjectURL(file);
+            a.download = "Generated-File.xml";
+            a.click();
+            URL.revokeObjectURL(a.href);
+          },
         },
-
       })
     </script>
   </body>

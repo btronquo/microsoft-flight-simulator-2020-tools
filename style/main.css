@@ -19,7 +19,18 @@ body {
 }
 
 .formInput {
-  padding-top: 20em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.guid {
+  padding: 15px 32px;
+  border-radius: 5px;
+  border: solid 1px grey;
 }
 
 textarea {
@@ -30,5 +41,27 @@ textarea {
   margin-top: 5em;
   background: #292929;
   color: #fafafa;
+}
+
+.btn {
+  color: white;
+  padding: 15px 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.btn-save {
+  background-color: #1d9acc;
+}
+
+.btn-copy {
+  background-color: #11ac8a;
 }
 /*# sourceMappingURL=main.css.map */

@@ -15,9 +15,16 @@ body {
 }
 
 .formInput {
-  padding-top: 20em;
+  display: flex;
+  align-items: center;
 }
 
+
+.guid {
+  padding: 15px 32px;
+  border-radius: 5px;
+  border: solid 1px grey;
+}
 
 textarea {
   font-size: large;
@@ -27,4 +34,22 @@ textarea {
   margin-top: 5em;
   background: $char;
   color: $lightGray;
+}
+
+.btn {
+  color: white;
+  padding: 15px 32px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.btn-save {
+  background-color: rgb(29, 154, 204);
+}
+
+.btn-copy {
+  background-color: rgb(17, 172, 138);
 }
