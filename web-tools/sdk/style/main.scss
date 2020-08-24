@@ -1,0 +1,30 @@
+
+$lightGray: #fafafa;
+$medBlue: #9baecf;
+$char: #292929;
+
+body {
+  background: $lightGray;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formInput {
+  padding-top: 20em;
+}
+
+
+textarea {
+  font-size: large;
+  resize: none;
+  outline: none;
+  overflow: hidden;
+  margin-top: 5em;
+  background: $char;
+  color: $lightGray;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Microsoft Flight Simulator 2020 - Object code generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+
+        <div class="formInput">
+          <input type="text" v-model="inputGuid"  name="guid" placeholder="GUID">
+          <button @click.stop.prevent="copyCode">copy code to clipboard</button>
+        </div>
+
+          <textarea id="result" rows="5" cols="50">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;ModelInfo version=&quot;1.1&quot; guid=&quot;{{this.editForm}}&quot;&gt;
+&lt;/ModelInfo&gt;
+          </textarea>
+
+      </div>
+
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          inputGuid: ''
+        },
+        computed: {
+          editForm: function() {
+            return "{" + this.inputGuid + "}"
+          }
+        },
+        methods: {
+          copyCode: function() {
+            let copyCode = document.querySelector("#result")
+            copyCode.select()
+            document.execCommand("copy")
+            alert('Code was copied to your clipboard')
+          }
+        },
+
+      })
+    </script>
+  </body>
+</html>
